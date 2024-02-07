@@ -1,10 +1,10 @@
 ## Requirements
-1. Sapio BLS server must be installed in a linux filesystem.
+1. Sapio BLS server must be installed in a Linux filesystem.
 2. Sapio BLS server must have network connection to the Sapio Analytics Server over a outbound TCP port.
 
 ## Deployment of Sapio Analytics Server (Single Instance)
-1. Modify the docker-compose.yaml to ensure your port outbound was desirable.
-2. Modify the docker-compose.yaml to use a custom API key.
+1. Modify the docker-compose.yaml to ensure your outbound port is configured.
+2. Modify the docker-compose.yaml to use a custom API key.  You should generate your own random string to use for this.
 2. Double check docker-compose.yaml to make sure the image path is the version you wanted. (You should have used a tagged build)
 3. Use the command "docker-compose pull" to grab latest image. (Unless this is Sapio dev building from scratch.)
 ```shell
@@ -70,10 +70,12 @@ The default value of the baseline synergy are the correct values.
 To verify, go to App Setup => Configuration Manager.
 Navigate to "Analytics" menu
 The values should be as follows.
+
 ### Native Analytics Form
 1. python3
 2. R
 3. /opt/sapiosciences/rtranslator/translate.sh
+
 ### CRISPR Form
 1. /data/indexes
 2. GRCh38_latest_genomic
