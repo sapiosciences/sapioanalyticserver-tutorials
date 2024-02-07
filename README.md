@@ -1,18 +1,22 @@
 ## Requirements
 1. Sapio BLS server must be installed in a linux filesystem.
 2. Sapio BLS server must have network connection to the Sapio Analytics Server over a outbound TCP port.
-3. 
 
 ## Deployment of Sapio Analytics Server (Single Instance)
-
 1. Modify the docker-compose.yaml to ensure your port outbound was desirable.
 2. Modify the docker-compose.yaml to use a custom API key.
 2. Double check docker-compose.yaml to make sure the image path is the version you wanted. (You should have used a tagged build)
 3. Use the command "docker-compose pull" to grab latest image. (Unless this is Sapio dev building from scratch.)
-4. Use the command "docker-compose up" to create instance.
+```shell
+sudo docker-compose pull
+```
+5. Use the command "docker-compose up" to create instance.
    Note you can use --detached so the lifecycle does not end when you exit console.
    You can also use -p to specify a custom project name but usually more convenient to rename the parent directory.
-5. Grab the keystore file in /data/execserver.keystore from the image (docker container cp sapioanalyticsserver_sapio_analytics_server_1:/data/execserver.keystore ~/Downloads) and put it into your Sapio server /opt/sapiosciences folder
+```shell
+sudo docker-compose up -d
+```
+6. Grab the keystore file in /data/execserver.keystore from the image (docker container cp sapioanalyticsserver_sapio_analytics_server_1:/data/execserver.keystore ~/Downloads) and put it into your Sapio server /opt/sapiosciences folder
    Alternatively, generate your own and put that inside the data volume (it persists) and replace the keystore file.
    The generated keystore must be of JKS format and have a key with alias "server" of RSA algorithm. It can be generated from keytool.
    The file may be located any readable place in Sapio server and renamed if desired.
