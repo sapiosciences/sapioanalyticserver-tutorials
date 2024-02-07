@@ -50,6 +50,18 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.htm
 
 It is important that all instances of the auto-scale server has the same API key and the same keystore.
 
+## Data Protection of Sapio Analytics Server
+Besides the applications and their own static data stores installed, and the configurations such as API key and the keystore file,
+there is no permanent data from Sapio that is being stored on any of these servers.
+Some data will be temporarily stored in /tmp directory which will be deleted immediately when the TCP session is destroyed.
+
+The "jailing" of download and upload directory is being enforced by sapio-analytic-server. 
+When receiving a download request outside the jailed temporary directory, an error message will occur.
+
+However, it is expected that a script is able to execute all executable programs, along with all scripts passed in.
+Therefore, it is critical for information security that all modifications ot executable programs are vetted, and all 
+Sapio server-side utilities and plugins are carefully examined and tested for security.
+
 ## Sapio App Setup
 After deploying the Sapio Analytics Serer and configured the ClientSettings.properties, you will need to redirect the
 binary locations in Sapio Analytics Settings to the correct locations installed in this container.
