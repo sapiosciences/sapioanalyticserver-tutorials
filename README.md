@@ -65,8 +65,9 @@ The values should be as follows.
 ### CRISPR Form
 1. /data/indexes
 2. GRCh38_latest_genomic
-   If any values are incorrect, please make adjustment as necessary and save.
-   The changes will take effect immediately.
+
+If any values are incorrect, please make adjustment as necessary and save.
+The changes will take effect immediately.
 
 To run a smoke test, Go to ELN create a table of data
 Create a column "x" and a column "y"
@@ -74,28 +75,4 @@ Enter a data suitable for linear regression data such as (1, 1), (2, 3), (4, 10)
 
 Create an advanced curve viewer widget as the next entry, select "Polynomial" regression and pick the X and Y columns.
 If the configuration is correct, the linear regression will be performed.
-You will also see in the app log indicating an attempt to connect to analytics server.## Deployment of Sapio Analytics Server (Single Instance)
-
-1. Modify the docker-compose.yaml to ensure your port outbound was desirable.
-2. Modify the docker-compose.yaml to use a custom API key.
-2. Double check docker-compose.yaml to make sure the image path is the version you wanted. (You should have used a tagged build)
-3. Use the command "docker-compose pull" to grab latest image. (Unless this is Sapio dev building from scratch.)
-4. Use the command "docker-compose up" to create instance.
-   Note you can use --detached so the lifecycle does not end when you exit console.
-   You can also use -p to specify a custom project name but usually more convenient to rename the parent directory.
-5. Grab the keystore file in /data/execserver.keystore from the image (docker container cp sapioanalyticsserver_sapio_analytics_server_1:/data/execserver.keystore ~/Downloads) and put it into your Sapio server /opt/sapiosciences folder
-   Alternatively, generate your own and put that inside the data volume (it persists) and replace the keystore file.
-   The generated keystore must be of JKS format and have a key with alias "server" of RSA algorithm. It can be generated from keytool.
-   The file may be located any readable place in Sapio server and renamed if desired.
-   The default password is "123456" (without quotes) for both the keystore password and the key password.
-7. In Sapio server navigate to /opt/sapiosciences and create file ClientSettings.properties like below.
-   **Note the file /opt/sapiosciences/ClientSettings.properties is a hard-coded path**.
-   Example content in the file:
-```
-server.address=sapio-analytics-server-ip-address
-server.port=8686
-apikey=The Key in docker-compose.yaml, value of SAPIO_EXEC_SERVER_API_KEY
-keystore.location=(keystore file absolute path readable by Sapio server)
-keystore.password=123456
-```
-The app or the Sapio Platform (BLS) server may need reboot to take effect.
+You will also see in the app log indicating an attempt to connect to analytics server.
