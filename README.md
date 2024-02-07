@@ -20,7 +20,7 @@ sudo docker-compose up -d
    Alternatively, generate your own and put that inside the data volume (it persists) and replace the keystore file.
    The generated keystore must be of JKS format and have a key with alias "server" of RSA algorithm. It can be generated from keytool.
    The file may be located any readable place in Sapio server and renamed if desired.
-   The default password is "123456" (without quotes) for both the keystore password and the key password.
+   The default password is "123456" (without quotes) for both the keystore password and the key password. The keystore password should not be changed unless you are rebuilding the image with custom Dockerfile.
 7. In Sapio server navigate to /opt/sapiosciences and create file ClientSettings.properties like below.
    **Note the file /opt/sapiosciences/ClientSettings.properties is a hard-coded path**.
    Example content in the file:
