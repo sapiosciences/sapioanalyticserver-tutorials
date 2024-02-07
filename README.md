@@ -48,6 +48,8 @@ The AWS infrastructure accomplishes this by implementing the *Flow Hash Algorith
 More details here:
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
 
+It is important that all instances of the auto-scale server has the same API key and the same keystore.
+
 ## Sapio App Setup
 After deploying the Sapio Analytics Serer and configured the ClientSettings.properties, you will need to redirect the
 binary locations in Sapio Analytics Settings to the correct locations installed in this container.
