@@ -24,10 +24,6 @@ sudo docker-compose up -d
 7. In Sapio server navigate to /opt/sapiosciences and create file ClientSettings.properties like below.
    **Note the file /opt/sapiosciences/ClientSettings.properties is a hard-coded path**.
    Example content in the file:
-8. Update Sapio analytic server's DataMgmtServer.bsh script. Add the following argument to the launch command line.
-```
--Dpython.import.site=false
-```
 ```
 server.address=sapio-analytics-server-ip-address
 server.port=8686
@@ -35,7 +31,11 @@ apikey=The Key in docker-compose.yaml, value of SAPIO_EXEC_SERVER_API_KEY
 keystore.location=(keystore file absolute path readable by Sapio server)
 keystore.password=123456
 ```
-The app or the Sapio Platform (BLS) server may need reboot to take effect.
+8. Update Sapio analytic server's DataMgmtServer.bsh script. Add the following argument to the launch command line.
+```
+-Dpython.import.site=false
+```
+9. Reboot the Sapio Platform (BLS) server.
 
 ## Deployment of Sapio Analytics Server (Load Balancing)
 Before completing this step, you should complete setup of a single Sapio Analytics server and 
