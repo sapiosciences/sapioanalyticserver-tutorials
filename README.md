@@ -24,6 +24,10 @@ sudo docker-compose up -d
 7. In Sapio server navigate to /opt/sapiosciences and create file ClientSettings.properties like below.
    **Note the file /opt/sapiosciences/ClientSettings.properties is a hard-coded path**.
    Example content in the file:
+8. Update Sapio analytic server's DataMgmtServer.bsh script. Add the following argument to the launch command line.
+```
+-Dpython.import.site=false
+```
 ```
 server.address=sapio-analytics-server-ip-address
 server.port=8686
