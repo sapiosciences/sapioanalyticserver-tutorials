@@ -5,7 +5,7 @@ services:
     build:
       context: sapio_analytics_server
       dockerfile: Dockerfile
-    image: sapiosciences/sapio_analytics_server_dev:24.12
+    image: sapiosciences/sapio_analytics_server:24.12
     environment:
       #NOTE: UPDATE ALL OF THESE BEFORE DEPLOYMENT!!!
       SAPIO_EXEC_SERVER_API_KEY: Your API Key. Please see README.
