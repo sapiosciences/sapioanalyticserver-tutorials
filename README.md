@@ -37,13 +37,6 @@ The values should be as follows.
    If any values are incorrect, please make adjustment as necessary and save.
    The changes will take effect immediately.
 
-To run a smoke test, Go to ELN create a table of data
-Create a column "x" and a column "y"
-Enter a data suitable for linear regression data such as (1, 1), (2, 3), (4, 10), (5 15)
-
-Create an advanced curve viewer widget as the next entry, select "Polynomial" regression and pick the X and Y columns.
-If the configuration is correct, the linear regression will be performed.
-You will also see in the app log indicating an attempt to connect to analytics server.
 
 ### Connection Properties
 You need to have Environmental Variables set up on the shell that launches the Sapio BLS (Sapio Platform Server).
@@ -66,6 +59,15 @@ SapioNativeExecHost="host"
 SapioNativeExecPort="8686"
 SapioNativeExecTrustStoreData="use command 'base64 your_keystore_file' to generate this string"
 ```
+
+### Smoke Test
+To run a smoke test, Go to ELN create a table of data
+Create a column "x" and a column "y"
+Enter a data suitable for linear regression data such as (1, 1), (2, 3), (4, 10), (5 15)
+
+Create an advanced curve viewer widget as the next entry, select "Polynomial" regression and pick the X and Y columns.
+If the configuration is correct, the linear regression will be performed.
+You will also see in the app log indicating an attempt to connect to analytics server.
 
 ## Deployment of Sapio Analytics Cluster with Load balancing
 There are multiple ways to deploy a Sapio Analytics Cluster with Load Balancing.
