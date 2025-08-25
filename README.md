@@ -45,6 +45,7 @@ The following environment variables are required.
 2. *SapioNativeExecHost*=Where the analytic server is located w.r.t. ethernet interface from the Sapio BLS. It can be hostname or IP.
 3. *SapioNativeExecPort*=The port in docker-compose file listening in the analytic server. Check analytic server inbound firewall (or its gateway's if cluster) to allow Sapio BLS connection.
 3. *SapioNativeExecTrustStoreData*=The base64 string of the PKCS12 file you have set up in docker-compose file earlier. (YOU SHOULD HAVE MODIFIED THIS.)
+4. *SapioNativeExecTrustStorePassword*=The password of the PKCS12 file you have set up in docker-compose file earlier. However, the default password of 123456 might be ok for you depending on your trust assumptions of config file and ENV with respect to both machines.
 
 You need the ENV to be *ACTIVE* and *EXPORTING TO NEW CHILD PROCESSES* under the shell that launches Sapio BLS.
 The "cheap way" to do this is through a shell scripting invoking a static .env text file, before executing the line to launch Java for Sapio BLS.
