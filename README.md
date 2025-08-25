@@ -58,6 +58,7 @@ SapioNativeExecAPIKey="Your API Key. Please see README."
 SapioNativeExecHost="host"
 SapioNativeExecPort="8686"
 SapioNativeExecTrustStoreData="use command 'base64 your_keystore_file' to generate this string"
+SapioNativeExecTrustStorePassword="123456"
 ```
 
 ### Smoke Test
