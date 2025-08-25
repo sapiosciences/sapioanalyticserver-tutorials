@@ -88,7 +88,7 @@ spec:
      labels:
        run: analytic-server-yq-github-dev-app
    spec:
-    terminationGracePeriodSeconds: 30
+    terminationGracePeriodSeconds: 630
     containers:
     - name: analytic-server-yq-github-dev-app
       image: sapiosciences/sapio_analytics_server_dev:<REPLACE_ME_WITH_TAG>
