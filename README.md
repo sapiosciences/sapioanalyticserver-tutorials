@@ -45,6 +45,28 @@ Create an advanced curve viewer widget as the next entry, select "Polynomial" re
 If the configuration is correct, the linear regression will be performed.
 You will also see in the app log indicating an attempt to connect to analytics server.
 
+### Connection Properties
+You need to have Environmental Variables set up on the shell that launches the Sapio BLS (Sapio Platform Server).
+The following environment variables are required.
+1. *SapioNativeExecAPIKey*=The exact API key string you have set up as a random string in docker-compose file earlier. (YOU SHOULD HAVE MODIFIED THIS.)
+2. *SapioNativeExecHost*=Where the analytic server is located w.r.t. ethernet interface from the Sapio BLS. It can be hostname or IP.
+3. *SapioNativeExecPort*=The port in docker-compose file listening in the analytic server. Check analytic server inbound firewall (or its gateway's if cluster) to allow Sapio BLS connection.
+3. *SapioNativeExecTrustStoreData*=The base64 string of the PKCS12 file you have set up in docker-compose file earlier. (YOU SHOULD HAVE MODIFIED THIS.)
+
+You need the ENV to be *ACTIVE* and *EXPORTING TO NEW CHILD PROCESSES* under the shell that launches Sapio BLS.
+The "cheap way" to do this is through a shell scripting invoking a static .env text file, before executing the line to launch Java for Sapio BLS.
+```shell
+export $(grep -v '^#' /opt/sapiosciences/local-exec-server.env | xargs)
+```
+And the file */opt/sapiosciences/local-exec-server.env* can be located anywhere in your system so long as it's readable to the Sapio BLS shell script.
+The example .env text file should look like this:
+```text
+SapioNativeExecAPIKey="Your API Key. Please see README."
+SapioNativeExecHost="host"
+SapioNativeExecPort="8686"
+SapioNativeExecTrustStoreData="use command 'base64 your_keystore_file' to generate this string"
+```
+
 ## Deployment of Sapio Analytics Cluster with Load balancing
 There are multiple ways to deploy a Sapio Analytics Cluster with Load Balancing.
 In this tutorial, we will show you a sample deployment using Kubernetes over AWS.
