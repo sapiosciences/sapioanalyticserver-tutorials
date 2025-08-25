@@ -20,7 +20,7 @@ The latest image is tagged as "latest" and the versioned images are tagged as "X
 **Do not use the latest image, unless you know what you are doing. Instead, use the tagged image that corresponds to your deployment's Sapio platform version.**
 
 ## Sapio App Setup
-After deploying the Sapio Analytics Serer and configured the ClientSettings.properties, you will need to redirect the
+After deploying the Sapio Analytics Serer  you will need to redirect the 
 binary locations in Sapio Analytics Settings to the correct locations installed in this container.
 
 The default value of the baseline synergy are the correct values.
